@@ -69,23 +69,29 @@ let RepetitionCheck = (inputArr) => {
   // 1 ריצה על המערך שהתקבל בקריאה
   let checkArr = {};
   let x;
+  let n = inputArr.length;
   for (i = 0; i < inputArr.length; i++) {
     // 2 אחסון כל הלאמנטים במערך בתוך אובייקטים
-    if (checkArr[inputArr[i]]) {
-      checkArr[inputArr[i]] += 1;
-    } else {
-      checkArr = { ...checkArr, [inputArr[i]]: 1 };
+    if (!checkArr[inputArr[i]]) {
+      checkArr = { ...checkArr, [inputArr[i]]: 0 };
     }
-    if(checkArr[inputArr[i]]>0){
-      if(checkArr[inputArr[i]]>checkArr[inputArr[i+1]]){
-        x = inputArr[i]
+    checkArr[inputArr[i]]++;
+    console.log(checkArr[inputArr[i]]);
+
+    for (let q =i +1; q < n; q++) {
+      if (checkArr[inputArr[i]] >= 0) {
+        console.log("c");
+        if (checkArr[inputArr[i]] > checkArr[inputArr[q]]) {
+          x = inputArr[i];
+          console.log("c");
+        }
       }
     }
   }
 
 
-  console.log( checkArr);
+  console.log(checkArr);
   console.log(x);
 };
 
-RepetitionCheck(["a", "b", "a", "b", "d", "f", "a"]);
+RepetitionCheck(["a", "d", "a", "b", "d", "f", "a"]);
