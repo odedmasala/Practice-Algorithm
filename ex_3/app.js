@@ -36,7 +36,9 @@ class LickedList {
 
 let node1 = new ListNode(2);
 let node2 = new ListNode(5);
+let node3 = new ListNode([0,2,455,10])
+node2.next = node3
 node1.next = node2;
-console.log(node1);
 let list = new LickedList(node1);
 console.log(list);
+console.log(list.size());
